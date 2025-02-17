@@ -40,7 +40,6 @@ export const login = async (currentState:{error: undefined | string}, formData:F
     } catch (error) {
         return { error: "Failed to parse response: " + error.message };
     }
-    console.log('🍏',user)
     if (!user.username) {
         return { error: "User not found or invalid credentials" };
     }
