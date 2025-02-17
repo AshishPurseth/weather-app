@@ -9,9 +9,8 @@ const Navbar = async () => {
     <nav>
         <Link href="/">Home</Link>
         <Link href="/profile">Profile</Link>
-        <Link href="/premium">Premium</Link>
-        <Link href="/login">Login</Link>
-        {session.isLoggedIn && <Logout/>}
+        <Link href="/premium">Premium</Link>      
+        {session.isLoggedIn ? <Logout/> : <Link href="/login">Login</Link>}
     </nav>
   )
 }
