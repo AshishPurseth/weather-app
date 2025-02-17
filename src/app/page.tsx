@@ -10,7 +10,7 @@ export default async function Home() {
 
   return (
     <div>
-      Welcome to Home page of Weather App
+      Welcome to Home page of Weather App {session.userName}
     </div>
   );
 }
