@@ -13,7 +13,7 @@ export const getSession = async ()=>{
 
     return session
 }
-export const login = async (formData:FormData)=>{
+export const login = async (currentState:{error: undefined | string}, formData:FormData)=>{
 
     const session = await getSession()
 
