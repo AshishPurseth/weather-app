@@ -20,14 +20,33 @@ export const login = async (currentState:{error: undefined | string}, formData:F
     const username = formData.get('username') as string
     const password = formData.get('password') as string
 
-    // check db connection
-
-    if(username !== 'ipgAutomotive' || !password){
-        return {error: 'wrong credential'}
+    if (!username || !password) {
+        return { error: "Username and password are required" };
     }
 
-    session.userId = "1"
-    session.userName = username
+    const response = await fetch('http://localhost:3000/api/users',{
+        method:'POST',
+        headers: { "Content-Type": "application/json" },
+        body:JSON.stringify({username, password})
+    })
+
+    if (!response.ok) {
+        return { error: "Login failed" };
+    }
+
+    let user;
+    try {
+        user = await response.json();
+    } catch (error) {
+        return { error: "Failed to parse response: " + error.message };
+    }
+    console.log('🍏',user)
+    if (!user.username) {
+        return { error: "User not found or invalid credentials" };
+    }
+
+    session.userId = user._id
+    session.userName = user.username
     session.isLoggedIn = true
     await session.save()
     redirect('/')

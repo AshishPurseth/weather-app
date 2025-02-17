@@ -1,5 +1,12 @@
+import { getSession } from "@/action"
+import { redirect } from "next/navigation"
 
-const Profile = () => {
+const Profile = async () => {
+  const session = await getSession()
+  
+    if(!session.isLoggedIn ){
+      redirect('/login')
+    }
   return (
     <div>Profile</div>
   )

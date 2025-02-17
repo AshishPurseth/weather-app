@@ -1,11 +1,11 @@
 'use client'
 import { login } from '@/action'
 import custom from '@/styles/custom.module.css'
-import { useFormState } from 'react-dom'
+import { useActionState } from 'react'
 
 const Login = () => {
 
-    const [state, formAction] = useFormState<any,FormData>(login, undefined) 
+    const [state, formAction] = useActionState<any,FormData>(login, undefined) 
 
   return (
     <form className={custom.form} action={formAction}>
