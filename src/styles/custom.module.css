@@ -31,7 +31,7 @@
 
 .country_container{
     display: grid;
-    grid-template-columns: repeat(7, 1fr);
+    grid-template-columns: repeat(10, 14rem);
     padding: 3rem 5rem;
     grid-gap: 1rem;
 }
@@ -97,4 +97,25 @@
     position: absolute;
     top: 20%;
     left: 40%
+}
+
+.multi_select{
+    display: grid;
+    grid-template-columns: 100%;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.homepage_weather{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 1rem;
+}
+
+.homepage_weather > div {
+    display: grid;
+    background-color: #feae34;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    justify-items: center;
 }

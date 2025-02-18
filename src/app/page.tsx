@@ -1,5 +1,8 @@
+
 import { getSession } from "@/action";
+import MultiSelect from "@/component/multiSelect";
 import { redirect } from "next/navigation";
+
 
 export default async function Home() {
   const session = await getSession()
@@ -9,8 +12,10 @@ export default async function Home() {
   }
 
   return (
-    <div>
-      <h1>Welcome to Home page of Weather App <b>{session.userName}</b></h1>
-    </div>
+    <>
+      <h1>Welcome to Home page of Weather App <mark>{session.userName}</mark></h1>
+      <MultiSelect session={session}/>
+      
+    </>
   );
 }
