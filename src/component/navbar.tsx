@@ -15,7 +15,6 @@ const Navbar = async () => {
       </section>
       <section className={custom.nav_inner_2}>
         <Link href='/'>Home</Link>
-        <Link href='/profile'>Profile</Link>
         <Link href='/countries'>Countries</Link>
         {session.isLoggedIn ? <Logout /> : <Link href='/login'>Login</Link>}
       </section>
